@@ -1,3 +1,3 @@
-export default function Page({ profileID }: { profileID: string }) {
+export default function Page({ params }: { params: { profileID: string } }) {
     return
 }
