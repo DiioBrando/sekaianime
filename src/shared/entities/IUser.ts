@@ -5,3 +5,9 @@ export interface IAuthUser {
     isActivated: boolean;
     roles: string[];
 }
+
+export interface IAuthResponse {
+    accessToken: string;
+    refreshToken: string;
+    user: IAuthUser;
+}

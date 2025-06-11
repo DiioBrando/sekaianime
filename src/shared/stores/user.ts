@@ -1,5 +1,8 @@
 import {create} from "zustand";
 import {IAuthUser} from "@/shared/entities/IUser";
+import {refresh} from "@/shared/api/refresh";
+import {logout} from "@/shared/api/logout";
+import {devtools} from "zustand/middleware";
 
 export interface IUserStoreProps {
     user: IAuthUser | null;
@@ -9,17 +12,21 @@ export interface IUserStoreProps {
     refreshUserToken: () => Promise<void>;
 }
 
-export const useUser = create<IUserStoreProps>((set) => ({
+export const useUser = create<IUserStoreProps>()(devtools((set) => ({
     user: null,
     isAuthenticated: false,
     setUser: (data) => {
         set({ user: data, isAuthenticated: true });
     },
-    clearUser: () => {
+    clearUser: async () => {
+        await logout();
+        localStorage.removeItem('accessToken');
         set({ user: null, isAuthenticated: false });
     },
-    refreshUserToken: () => {
-
+    refreshUserToken: async () => {
+        const data = await refresh();
+        localStorage.setItem('accessToken', data?.data.accessToken);
+        set({ user: data.data.user, isAuthenticated: true });
     },
-}),
+})),
 );
