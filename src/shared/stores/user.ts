@@ -1,5 +1,5 @@
 import {create} from "zustand";
-import {IAuthUser} from "@/shared/entities/IUser";
+import {IAuthUser} from "@/shared/entities/user/model/IUser";
 import {refresh} from "@/shared/api/refresh";
 import {logout} from "@/shared/api/logout";
 import {devtools} from "zustand/middleware";
