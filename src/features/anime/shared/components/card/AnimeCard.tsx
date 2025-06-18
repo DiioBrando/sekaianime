@@ -14,7 +14,7 @@ export type TAnimeCard = {
 export const AnimeCard = ({data, variant = 'default'}: TAnimeCard) => {
     const title = data;
     const genres = title.genres.slice(0, 4);
-    const parts = [title.season.year, title.season.season, title.type.string, title.status.string].filter(Boolean);
+    const parts = [title.season.year, title.season.string, title.type.string, title.status.string].filter(Boolean);
     return (
         <Card className={'group relative overflow-hidden w-full h-full max-w-[190px] max-h-[280px] border-0'}>
             <Link href={'/test-path'} className={'absolute inset-0 z-25 pointer-event-auto'}></Link>

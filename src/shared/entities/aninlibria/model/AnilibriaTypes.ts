@@ -54,7 +54,7 @@ export type Releases = {
 }
 
 export type Status = {
-    status: string;
+    string: string;
     code: number;
 }
 
@@ -72,7 +72,7 @@ export type Poster = {
 export type Type = {
     full_name: string;
     code: number;
-    media_type: string;
+    string: string;
     episodes: number;
     length: number;
 }
@@ -86,7 +86,7 @@ export type Team = {
 }
 
 export type Season = {
-    season: string;
+    string: string;
     code: number;
     year: number;
     week_day: number;
@@ -95,7 +95,7 @@ export type Season = {
 export type Blocked = {
     copyrights: boolean;
     geoip: boolean;
-    geoip_list: [];
+    geoip_list: string[];
 }
 
 export type Player = {
@@ -121,7 +121,7 @@ export type Episode = {
     name: string;
     uuid: string;
     created_timestamp: number;
-    preview: null;
+    preview: string;
     skips: Skips;
     hls: HlsQuality;
 }
