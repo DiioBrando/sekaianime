@@ -1,8 +1,8 @@
 'use client';
-import {SignInFormValues, SignUpFormValues} from "@/features/auth/lib/actions";
+import {SignInFormValues, SignUpFormValues} from "@/shared/entities/user/lib/actions";
 import {useMutation} from "@tanstack/react-query";
-import {postSignIn} from "@/features/auth/api/sign-in/postSignIn";
-import {postSignUp} from "@/features/auth/api/sign-up/postSignUp";
+import {postSignIn} from "@/shared/entities/user/api/sign-in/postSignIn";
+import {postSignUp} from "@/shared/entities/user/api/sign-up/postSignUp";
 import {useToast} from "@/shared/stores/toast";
 import {useRouter, useSearchParams} from "next/navigation";
 import {useUser} from "@/shared/stores/user";

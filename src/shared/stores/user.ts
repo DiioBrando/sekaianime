@@ -1,7 +1,7 @@
 import {create} from "zustand";
 import {IAuthUser} from "@/shared/entities/user/model/IUser";
-import {refresh} from "@/shared/api/refresh";
-import {logout} from "@/shared/api/logout";
+import {refresh} from "@/shared/entities/user/api/refresh";
+import {logout} from "@/shared/entities/user/api/logout";
 import {devtools} from "zustand/middleware";
 
 export interface IUserStoreProps {

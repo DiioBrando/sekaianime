@@ -10,7 +10,7 @@ import {
 import {Button} from "@/shared/components/ui/button";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {SignUpFormSchema, SignUpFormValues} from "@/features/auth/lib/actions";
+import {SignUpFormSchema, SignUpFormValues} from "@/shared/entities/user/lib/actions";
 import {Input} from "@/shared/components/ui/input";
 import Link from "next/link";
 import {Checkbox} from "@/shared/components/ui/checkbox";

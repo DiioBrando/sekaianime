@@ -1,5 +1,5 @@
 import axios from "axios";
-import {refresh} from "@/shared/api/refresh";
+import {refresh} from "@/shared/entities/user/api/refresh";
 
 // api anilibria
 // see docs here: https://github.com/anilibria/docs/blob/master/api_v3.md#websocket
