@@ -12,7 +12,7 @@ export type Title = {
     id: number;
     code: string;
     names: Names;
-    franchises: Franchises;
+    franchises: Franchises[];
     announce: string;
     status: Status;
     posters: Posters;
@@ -26,8 +26,8 @@ export type Title = {
     in_favorites: number;
     blocked: Blocked;
     player: Player;
-    rutub: Rutub;
-    torrents: Torrents;
+    rutube?: Rutube;
+    torrents?: Torrents;
 }
 
 export type Names = {
@@ -38,7 +38,7 @@ export type Names = {
 
 export type Franchises = {
     franchise: Franchise;
-    releases: Releases;
+    releases: Releases[];
 }
 
 export type Franchise = {
@@ -70,7 +70,7 @@ export type Poster = {
 }
 
 export type Type = {
-    full_name: string;
+    full_string: string;
     code: number;
     string: string;
     episodes: number;
@@ -104,16 +104,17 @@ export type Player = {
     is_rutube: boolean;
     episodes: Episodes;
     list: ListEpisodes;
+    rutube?: Rutube;
 }
 
 export type Episodes = {
     first: number;
     last: number;
-    episode_range: string;
+    string: string;
 }
 
 export type ListEpisodes = {
-    [index: string]: Episode[];
+    [index: string]: Episode;
 }
 
 export type Episode = {
@@ -137,7 +138,7 @@ export type HlsQuality = {
     sd: string;
 }
 
-export type Rutub = {
+export type Rutube = {
     created_timestamp: number;
     episode: number;
     rutube_id: string;
