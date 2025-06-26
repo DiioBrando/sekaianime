@@ -20,14 +20,14 @@ const variantsCard: Record<VariantType, CardVariantStyles> = {
     default: {
         overlay: 'bg-black/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition',
         content: 'inset-0 flex-col justify-between opacity-0 group-hover:opacity-100 transition',
-        image: 'max-w-full max-h-full',
-        card: 'w-full min-w-[140px] max-w-[200px] min-h-[200px] max-h-[280px] aspect-[3/4]',
+        image: 'w-full h-full',
+        card: 'min-w-[9rem] max-w-[100%] aspect-[3/4]',
     },
     genres: {
         overlay: 'bg-[linear-gradient(rgba(16,16,16,0)_0%,rgba(16,16,16,0.2)_70%,rgb(0,0,0)_100%)]',
         content: 'inset-0 flex-col justify-between',
-        image: 'max-w-full max-h-full',
-        card: 'w-full min-w-[140px] max-w-[300px] min-h-[200px] max-h-[280px] aspect-[3/4]',
+        image: 'w-full h-full',
+        card: 'min-w-[9rem] max-w-[100%] aspect-[3/4]',
     },
     franchise: {
         overlay: 'hover:bg-black/50',
