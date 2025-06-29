@@ -1,0 +1,11 @@
+export { callApi } from '../../../lib/callApi';
+export { getChanges } from './getChanges';
+export { getFranchises } from './getFanchises';
+export { getRandom } from './getRandom';
+export { getSchedule } from './getSchedule';
+export { getSearch } from './getSearch';
+export { getSearchAdvanced } from './getSearchAdvanced';
+export { getTitle } from './getTitle';
+export { getTitleList } from './getTitleList';
+export { getTitleUpdates } from './getTitleUpdates';
+export { getFranchiseList } from './getFranchiseList';
