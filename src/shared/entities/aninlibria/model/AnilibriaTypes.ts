@@ -1,9 +1,9 @@
 // https://gitlab.com/anilibria/anilibria-types/-/tree/master
-import {Pagination} from "@/shared/entities/aninlibria/model/AnilibriaPagination";
+import {TPagination} from "@/shared/entities/aninlibria/model/AnilibriaPagination";
 
 export type TitlesPagination = {
     list: Titles;
-    pagination: Pagination;
+    pagination: TPagination;
 };
 
 export type Titles = Title[];
@@ -186,4 +186,9 @@ export type FilesList = {
     file: string;
     size: number;
     offset: number;
+}
+
+export type Schedule = {
+    day: string;
+    list: Titles;
 }
