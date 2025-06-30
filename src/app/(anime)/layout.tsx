@@ -29,7 +29,7 @@ export default async function AnimeLayout({children}: Readonly<{ children: React
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
             <AppProvider>
-                <main className={'flex flex-col max-w-[1200px] h-full mx-auto overflow-y-scroll overflow-x-hidden'}>{children}</main>
+                <main className={'flex flex-col max-w-[1200px] mx-auto overflow-y-scroll'}>{children}</main>
             </AppProvider>
         </NextIntlClientProvider>
         </body>
