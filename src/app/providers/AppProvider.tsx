@@ -2,7 +2,7 @@
 import {ReactNode, Suspense, useEffect} from "react";
 import {ClientProvider} from "@/app/providers/query-client-provider";
 import {Toaster} from "@/app/providers/toast-provider";
-import {ThemeProvider} from "@/app/providers/theme-provider";
+import {RadixTheme, ThemeProvider} from "@/app/providers/theme-provider";
 import {useUser} from "@/shared/stores/user";
 
 export function AppProvider({children}: { children: ReactNode }) {
@@ -23,7 +23,9 @@ export function AppProvider({children}: { children: ReactNode }) {
                 enableSystem
                 disableTransitionOnChange
             >
+                <RadixTheme>
                 {children}
+                </RadixTheme>
                 <Toaster/>
             </ThemeProvider>
         </ClientProvider>
