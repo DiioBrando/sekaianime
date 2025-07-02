@@ -5,6 +5,7 @@ import {getLocale, getMessages} from "next-intl/server";
 import {AppProvider} from "@/app/providers";
 import {ReactNode} from "react";
 import {NextIntlClientProvider} from "next-intl";
+import {Header} from "@/shared/components/Header";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default async function AnimeLayout({children}: Readonly<{ children: React
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
             <AppProvider>
+                <Header/>
                 <main className={'flex flex-col max-w-[1200px] mx-auto overflow-y-scroll'}>{children}</main>
             </AppProvider>
         </NextIntlClientProvider>
