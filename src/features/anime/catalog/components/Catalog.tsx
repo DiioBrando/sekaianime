@@ -1,6 +1,6 @@
 'use client';
 
-import {PaginationObserver} from "@/shared/components/Pagination/PaginationObserver";
+import {PaginationObserver} from "@/shared/components/pagination/PaginationObserver";
 import {AnimeCard} from "@/shared/components/AnimeCard";
 import {Spinner} from "@radix-ui/themes";
 import {Skeleton} from "@/shared/components/ui/skeleton";
