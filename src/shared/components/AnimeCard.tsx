@@ -76,7 +76,7 @@ export const AnimeCard = ({data, srcImage, linkTo, variant = 'default'}: TAnimeC
             <div className={cn('absolute inset-0 z-10 pointer-events-none', style.overlay)}/>
             <div>
                 <Image
-                    className={cn('absolute inset-0 z-0 object-cover border-1', style.image)}
+                    className={cn('absolute inset-0 z-0 object-cover', style.image)}
                     src={srcImage ? `https://anilibria.tv${srcImage}` : '/images/default.jpg'}
                     alt={'Anime poster'}
                     loading={'lazy'}
