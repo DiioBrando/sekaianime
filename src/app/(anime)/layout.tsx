@@ -6,6 +6,7 @@ import {AppProvider} from "@/app/providers";
 import {ReactNode} from "react";
 import {NextIntlClientProvider} from "next-intl";
 import {Header} from "@/shared/components/Header";
+import {AppSideBar} from "@/shared/components/sidebar/AppSideBar";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default async function AnimeLayout({children}: Readonly<{ children: React
         <NextIntlClientProvider locale={locale} messages={messages}>
             <AppProvider>
                 <Header/>
+                <AppSideBar/>
                 <main className={'flex flex-col max-w-[1200px] mx-auto overflow-y-scroll'}>{children}</main>
             </AppProvider>
         </NextIntlClientProvider>

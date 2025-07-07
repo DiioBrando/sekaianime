@@ -1,9 +1,10 @@
 "use client";
-import {ReactNode, Suspense, useEffect} from "react";
+import {ReactNode, useEffect} from "react";
 import {ClientProvider} from "@/app/providers/query-client-provider";
 import {Toaster} from "@/app/providers/toast-provider";
 import {RadixTheme, NextThemes} from "@/app/providers/theme-provider";
 import {useUser} from "@/shared/stores/user";
+import {SidebarProvider} from "@/shared/components/ui/sidebar";
 
 export function AppProvider({children}: { children: ReactNode }) {
     const {refreshUserToken} = useUser();
@@ -24,7 +25,9 @@ export function AppProvider({children}: { children: ReactNode }) {
                 disableTransitionOnChange
             >
                 <RadixTheme>
-                {children}
+                    <SidebarProvider defaultOpen={false}>
+                        {children}
+                    </SidebarProvider>
                 </RadixTheme>
                 <Toaster/>
             </NextThemes>
