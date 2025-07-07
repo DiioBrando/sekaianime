@@ -1,0 +1,1 @@
+export {queryConfig} from './config'
