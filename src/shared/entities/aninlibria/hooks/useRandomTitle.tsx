@@ -24,7 +24,7 @@ export const useRandomTitle = ({config, queryKey}: { config?: ConfigWithParams<R
             },
             ...propsConfig,
         }),
-        queryKey: queryKey ?? ['title', 'random', params],
+        queryKey: queryKey ?? ['title', 'random', mergedParams],
         enabled: true,
         select: (data) => data.data,
     });

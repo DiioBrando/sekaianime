@@ -22,7 +22,7 @@ export const useSearch = ({config, queryKey}: { config?: ConfigWithParams<Search
             },
             ...propsConfig,
         }),
-        queryKey: queryKey ?? ['title', 'search', params],
+        queryKey: queryKey ?? ['title', 'search', mergedParams],
         select: (data) => data.data,
         enabled: !!params.search,
     });
