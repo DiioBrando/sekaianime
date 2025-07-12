@@ -18,7 +18,7 @@ export const useTitleUpdates = ({config, queryKey}: { config?: ConfigWithParams<
         ...params,
     };
 
-    const {isFetchingNextPage, isLoading, ...propsQuery} = useInfiniteQuery({
+    const {isFetchingNextPage, isLoading, hasNextPage,...propsQuery} = useInfiniteQuery({
         queryFn: ({pageParam}) => getTitleUpdates({
             params: {
                 page: pageParam,
@@ -26,22 +26,24 @@ export const useTitleUpdates = ({config, queryKey}: { config?: ConfigWithParams<
             },
             ...propsConfig,
         }),
-        queryKey: queryKey ?? ['title', 'updates', params],
+        queryKey: queryKey ?? ['title', 'updates', mergedParams],
         initialPageParam: 1,
-        getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-            if (!lastPage) {
-                return undefined;
-            }
-            return lastPageParam + 1;
+        getNextPageParam: (lastPage) => {
+            const {current_page, pages} = lastPage.data.pagination;
+            return current_page >= pages? undefined: current_page + 1;
         },
         select: (data) => ({
             pages: data.pages.flatMap((pages) => pages.data),
             pageParams: data.pageParams,
         }),
     });
+    const showSkeleton = isLoading || isFetchingNextPage;
+    const showNextPage = !(isLoading || isFetchingNextPage) && hasNextPage;
 
     return {
-        isDataPending: isLoading || isFetchingNextPage,
+        showSkeleton,
+        showNextPage,
+        hasNextPage,
         items_per_page: DEFAULT_PARAMS.items_per_page ?? config?.params?.items_per_page,
         ...propsQuery,
     }
