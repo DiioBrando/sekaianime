@@ -1,3 +1,5 @@
+import {Release} from "@/features/anime/release/components/Release";
+
 export default function Page({ params }: { params: { releaseID: string } }) {
-    return
+    return <Release id={params.releaseID}/>
 }
