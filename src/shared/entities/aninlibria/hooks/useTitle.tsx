@@ -28,7 +28,6 @@ export const useTitle = ({config, queryKey}: { config?: ConfigWithParams<TitlePa
 
     const showSkeleton = isLoading || isFetching;
     const showResults = !isFetching && data != null && Object.keys(data).length > 0;
-    console.log(data);
 
     return {
         showSkeleton,
