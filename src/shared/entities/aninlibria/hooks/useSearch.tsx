@@ -7,6 +7,7 @@ const DEFAULT_PARAMS = {
     filter: 'id,code,posters,names,type,season',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useSearch = ({config, queryKey}: { config?: ConfigWithParams<SearchParams>, queryKey?: any }) => {
     const {params, ...propsConfig} = config || {};
 
@@ -24,11 +25,11 @@ export const useSearch = ({config, queryKey}: { config?: ConfigWithParams<Search
         }),
         queryKey: queryKey ?? ['title', 'search', mergedParams],
         select: (data) => data.data,
-        enabled: !!params.search,
+        enabled: !!params?.search,
     });
 
-    const showSkeleton = !!params.search && (isLoading || isFetching);
-    const showResults = !!params.search && !isFetching && data?.list.length;
+    const showSkeleton = !!params?.search && (isLoading || isFetching);
+    const showResults = !!params?.search && !isFetching && data?.list.length;
 
     return {
         isLoading, isFetching,

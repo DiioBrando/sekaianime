@@ -9,6 +9,7 @@ const DEFAULT_PARAMS = {
     filter: 'id,code',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useRandomTitle = ({config, queryKey}: { config?: ConfigWithParams<RandomParams>, queryKey?: any }) => {
     const {params, ...propsConfig} = config || {};
 

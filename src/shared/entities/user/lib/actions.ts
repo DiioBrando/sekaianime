@@ -6,7 +6,7 @@ export const SignUpFormSchema = z.object({
     email: z.string().max(256).email(),
     password: z.string().min(8).max(50),
     confirmPassword: z.string().min(8).max(50),
-    agreements: z.literal(true),
+    agreements: z.boolean().refine(val => val),
 }).refine((data) => data.password === data.confirmPassword, {
     path: ['confirmPassword'],
     message: 'Passwords do not match',
@@ -15,7 +15,7 @@ export const SignUpFormSchema = z.object({
 export const SignInFormSchema = z.object({
     login: z.string().min(2),
     password: z.string().min(8),
-    agreements: z.literal(true),
+    agreements: z.boolean().refine(val => val),
 });
 
 export const ForgotPasswordSchema = z.object({

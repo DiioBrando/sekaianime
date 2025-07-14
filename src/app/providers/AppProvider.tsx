@@ -13,7 +13,7 @@ export function AppProvider({children}: { children: ReactNode }) {
         if ((typeof window !== 'undefined') && localStorage.getItem('accessToken')) {
             refreshUserToken();
         }
-    }, []);
+    }, [refreshUserToken]);
 
     return (
         <ClientProvider>

@@ -18,7 +18,7 @@ export const Modal = ({modalId, children, title, description, visuallyHidden, cl
     const {currentModalId, clearCurrentModal} = useModalStore();
 
     const _onOpenChange = (open: boolean) => {
-        !open && clearCurrentModal();
+        if(!open) clearCurrentModal();
     };
 
     return (

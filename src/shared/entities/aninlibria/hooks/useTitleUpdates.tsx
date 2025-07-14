@@ -10,6 +10,7 @@ const DEFAULT_PARAMS = {
         filter: 'id,code,names,posters,status,genres,type,season,player',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useTitleUpdates = ({config, queryKey}: { config?: ConfigWithParams<UpdatesParams>, queryKey?: any }) => {
     const {params = DEFAULT_PARAMS, ...propsConfig} = config || {};
 

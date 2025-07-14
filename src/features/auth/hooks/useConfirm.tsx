@@ -14,6 +14,7 @@ export const useConfirm = () => {
     const {toast} = useToast();
     const {setUser} = useUser();
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleError = (error: any, title: string, description?: string) => {
         toast({
             title: title,
@@ -21,6 +22,8 @@ export const useConfirm = () => {
         });
         console.error(error.message);
     };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSuccess = (data: any, title: string, description?: string) => {
         toast({
             title: title,

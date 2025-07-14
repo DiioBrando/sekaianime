@@ -12,7 +12,7 @@ export type TTeamsVoices = {
 }
 
 export const TeamsVoices = ({title, showResults, showSkeleton}: TTeamsVoices) => {
-    const localization = title && Object.entries(title?.team).filter(([key, value]) => !!value.length) || [];
+    const localization = title && Object.entries(title?.team).filter(([, value]) => !!value.length) || [];
 
     return (
         <>

@@ -2,7 +2,7 @@
 
 import {Button} from "@/shared/components/ui/button";
 import Link from "next/link";
-import {HomeIcon, SettingsIcon, Shuffle, UserIcon, UserPlus} from "lucide-react";
+import {HomeIcon, SettingsIcon, Shuffle, UserPlus} from "lucide-react";
 import {useRandomTitle} from "@/shared/entities/aninlibria/hooks/useRandomTitle";
 import {cn} from "@/shared/lib/utils";
 import {usePathname} from "next/navigation";
@@ -46,11 +46,6 @@ export const Header = () => {
                             <UserPlus/>
                         </Link>
                     </Button>
-                    {/*<Button variant={'ghost'} className={cn('h-[35px] w-[40px] text-[15px]', pathname === '/profile' && 'bg-accent')} asChild>*/}
-                    {/*    <Link href={'/profile'}>*/}
-                    {/*        <UserIcon/>*/}
-                    {/*    </Link>*/}
-                    {/*</Button>*/}
                     <Button variant={'ghost'} className={cn('h-[35px] w-[40px] text-[15px] cursor-pointer')} asChild>
                         <SidebarTrigger/>
                     </Button>

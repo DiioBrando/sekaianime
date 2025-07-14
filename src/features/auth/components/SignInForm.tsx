@@ -76,7 +76,7 @@ export const SignInForm = () => {
                         render={({field}) => (
                             <FormItem className={'flex items-center'}>
                                 <FormControl>
-                                    <Checkbox checked={field.value} onCheckedChange={field.onChange} {...field}/>
+                                    <Checkbox checked={field.value} onCheckedChange={field.onChange}/>
                                 </FormControl>
                                 <FormLabel className={'cursor-pointer capitalize ' + textSize}>
                                     <Link href={'/privacy'} className={'underline'}>privacy & terms</Link>

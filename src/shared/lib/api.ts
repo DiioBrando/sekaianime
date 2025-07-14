@@ -32,7 +32,9 @@ $sekaianime_api.interceptors.response.use(
                 localStorage.setItem('accessToken', response.data.accessToken);
                 return $sekaianime_api.request(originalRequest);
             } catch (e) {
-                console.log('No auth', e.message);
+                if (e instanceof Error) {
+                    console.log('No auth', e.message);
+                }
             }
         }
         throw error;

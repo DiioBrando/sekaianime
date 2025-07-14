@@ -19,7 +19,7 @@ interface IToaster {
 }
 
 export const useToast = create<IToaster>((set) => ({
-    toasts: [] as Toaster,
+    toasts: [],
     toast: (toast) => {
         set((state) => {
             const _toast = {id: nanoid(), ...toast};
