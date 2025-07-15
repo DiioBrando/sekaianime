@@ -15,6 +15,35 @@ export type TFranchiseProps = {
 export const Franchises = ({title, showResults, showSkeleton}: TFranchiseProps) => {
     const releases = title?.franchises.flatMap(item => item.releases);
 
+    if(!releases?.length) {
+        return (
+            <Box className={'w-full'} asChild>
+                <div className={'p-4'}>
+                    <Card>
+                        <Flex className={'gap-1.5'} align={'center'}>
+                            <Image
+                                className={'rounded-md min-w-[50px] min-h-[50px] max-w-[50px] max-h-[50px]'}
+                                src={'/images/default.jpg'}
+                                width={60}
+                                height={60}
+                                alt={'P'}
+                                loading={'lazy'}
+                            />
+                            <Box>
+                                <Text as={'div'} size={'2'} weight={'bold'}>
+                                    No related franchises
+                                </Text>
+                                <Text as={'div'} size={'1'} color={'gray'}>
+                                    This release is not related to any franchises
+                                </Text>
+                            </Box>
+                        </Flex>
+                    </Card>
+                </div>
+            </Box>
+        );
+    }
+
     return (
         <>
             {

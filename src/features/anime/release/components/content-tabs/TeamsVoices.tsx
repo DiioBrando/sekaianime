@@ -14,6 +14,35 @@ export type TTeamsVoices = {
 export const TeamsVoices = ({title, showResults, showSkeleton}: TTeamsVoices) => {
     const localization = title && Object.entries(title?.team).filter(([, value]) => !!value.length) || [];
 
+    if(!localization?.length) {
+        return (
+            <Box className={'w-full'} asChild>
+                <div className={'p-4'}>
+                    <Card>
+                        <Flex className={'gap-1.5'} align={'center'}>
+                            <Image
+                                className={'rounded-md min-w-[50px] min-h-[50px] max-w-[50px] max-h-[50px]'}
+                                src={'/images/default.jpg'}
+                                width={60}
+                                height={60}
+                                alt={'P'}
+                                loading={'lazy'}
+                            />
+                            <Box>
+                                <Text as={'div'} size={'2'} weight={'bold'}>
+                                    No related voices and teams
+                                </Text>
+                                <Text as={'div'} size={'1'} color={'gray'}>
+                                    This release is not voices and teams
+                                </Text>
+                            </Box>
+                        </Flex>
+                    </Card>
+                </div>
+            </Box>
+        );
+    }
+
     return (
         <>
             {
@@ -22,8 +51,8 @@ export const TeamsVoices = ({title, showResults, showSkeleton}: TTeamsVoices) =>
                     value.map((item, valueIndex, valueArr) => (
                         <Fragment key={valueIndex}>
                             <Box className={'w-full'} asChild>
-                                <div className={'rounded-md p-4 cursor-pointer'}>
-                                    <Card className={'hover:bg-accent'}>
+                                <div className={'p-4'}>
+                                    <Card>
                                         <Flex className={'gap-1.5'} align={'center'}>
                                             <Image
                                                 className={'rounded-md min-w-[50px] min-h-[50px] max-w-[50px] max-h-[50px]'}
