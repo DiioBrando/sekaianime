@@ -19,11 +19,8 @@ export type SearchModalState = {
 
 export const SearchModal = ({idModal}: SearchModalState) => {
     const [searchParams, setSearchParams] = useState<string>('');
-    const {setCurrentModal} = useModalStore();
-    const {
-        data, showSkeleton,
-        showResults,
-    } = useSearch({
+    const {setCurrentModal, clearCurrentModal} = useModalStore();
+    const {data, showSkeleton, showResults} = useSearch({
         config: {
             params: {
                 search: searchParams,
@@ -31,6 +28,16 @@ export const SearchModal = ({idModal}: SearchModalState) => {
             },
         }
     });
+
+    const handleCloseModal = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        const target = e.target as HTMLElement;
+        const link = target.closest("a");
+
+        if(link?.tagName === "A" && link) {
+            clearCurrentModal();
+            setSearchParams('');
+        }
+    }
 
     return (
         <>
@@ -44,23 +51,11 @@ export const SearchModal = ({idModal}: SearchModalState) => {
             <Modal
                 modalId={'searchHeaderID'}
                 title={'Search release'}
-                description={showResults ? searchParams : 'loading'}
-                className={'flex flex-col px-4 py-7 sm:p-7 w-[calc(100vw-2rem)] 2xl:max-w-[1450px] max-w-[1300px] h-full max-h-[800px] sm:w-full sm:mx-6 top-[50%]'}
+                className={'flex flex-col px-4 py-7 sm:p-7 w-full h-full 2xl:max-w-[1450px] max-w-[1300px]'}
+                showCloseButton={true}
             >
                 <Search setSearchParams={setSearchParams}/>
-                {
-                    showSkeleton &&
-                    Array.from({length: 10}).map((_, i) => (
-                        <div key={i} className={'flex gap-1 items-center'}>
-                            <Skeleton className={'rounded-full min-h-[40px] min-w-[40px]'}/>
-                            <div className={'w-full flex flex-col gap-1'}>
-                                <Skeleton className={'w-full h-[13px]'}/>
-                                <Skeleton className={'w-full max-w-[40%] h-[13px]'}/>
-                            </div>
-                        </div>
-                    ))
-                }
-                <div className={'max-h-[800px] h-full overflow-hidden overflow-y-scroll space-y-2'}>
+                <div className={'max-h-[800px] h-full overflow-hidden overflow-y-scroll space-y-2'} onClick={handleCloseModal}>
                     {
                         showResults &&
                         data?.list.map((item, index) => (
@@ -87,6 +82,18 @@ export const SearchModal = ({idModal}: SearchModalState) => {
                                     </Link>
                                 </Box>
                             </>
+                        ))
+                    }
+                    {
+                        showSkeleton &&
+                        Array.from({length: 10}).map((_, i) => (
+                            <div key={i} className={'flex gap-1 items-center'}>
+                                <Skeleton className={'rounded-full min-h-[40px] min-w-[40px]'}/>
+                                <div className={'w-full flex flex-col gap-1'}>
+                                    <Skeleton className={'w-full h-[13px]'}/>
+                                    <Skeleton className={'w-full max-w-[40%] h-[13px]'}/>
+                                </div>
+                            </div>
                         ))
                     }
                 </div>

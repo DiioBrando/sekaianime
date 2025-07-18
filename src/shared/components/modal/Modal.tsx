@@ -1,9 +1,10 @@
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from "@/shared/components/ui/dialog";
 import type {DialogProps} from "@radix-ui/react-dialog";
-import type {ReactNode} from "react";
+import {CSSProperties, ReactNode} from "react";
 import {useModalStore} from "@/shared/stores/modal";
 import {VisuallyHidden} from "@radix-ui/themes/components/visually-hidden";
 import {cn} from "@/shared/lib/utils";
+import {useWindowDimensions} from "@/shared/lib/mediaQuery";
 
 export interface ModalProps extends DialogProps {
     modalId: string;
@@ -12,18 +13,21 @@ export interface ModalProps extends DialogProps {
     description?: string;
     visuallyHidden?: string; // for screen reader
     className?: string;
+    showCloseButton?: boolean;
+    style?: CSSProperties;
 }
 
-export const Modal = ({modalId, children, title, description, visuallyHidden, className, ...props}: ModalProps) => {
+export const Modal = ({modalId, children, title, description, visuallyHidden, className, showCloseButton = false, style, ...props}: ModalProps) => {
     const {currentModalId, clearCurrentModal} = useModalStore();
 
     const _onOpenChange = (open: boolean) => {
-        if(!open) clearCurrentModal();
+        if (!open) clearCurrentModal();
     };
+    const {width, height} = useWindowDimensions();
 
     return (
         <Dialog open={currentModalId === modalId} onOpenChange={_onOpenChange} modal {...props}>
-            <DialogContent showCloseButton={false} className={cn('p-4', className)}>
+            <DialogContent showCloseButton={showCloseButton} className={cn('p-4', className)} style={{...style, maxWidth: Math.floor(width - 30), maxHeight: Math.floor(height - 150)}}>
                 {
                     (title || description) ?
                         <DialogHeader>

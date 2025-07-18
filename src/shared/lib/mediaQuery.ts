@@ -17,3 +17,23 @@ export function useIsMobile() {
 
     return !!isMobile
 }
+
+export function useWindowDimensions() {
+    const [size, setSize] = React.useState({width: 0, height: 0});
+
+    React.useEffect(() => {
+        const updateSize = () => {
+            const width = document.documentElement.clientWidth;
+            const height = document.documentElement.clientHeight;
+            setSize(prevState => ({...prevState, width: width, height: height}));
+        }
+        updateSize();
+        window.addEventListener("resize", updateSize);
+        return () => window.removeEventListener("resize", updateSize);
+    }, []);
+
+    return {
+        width: size.width,
+        height: size.height,
+    }
+}
