@@ -4,7 +4,7 @@ import {CSSProperties, ReactNode} from "react";
 import {useModalStore} from "@/shared/stores/modal";
 import {VisuallyHidden} from "@radix-ui/themes/components/visually-hidden";
 import {cn} from "@/shared/lib/utils";
-import {useWindowDimensions} from "@/shared/lib/mediaQuery";
+import {useWindowDimensions} from "@/shared/lib/media-query";
 
 export interface ModalProps extends DialogProps {
     modalId: string;

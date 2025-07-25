@@ -1,5 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
-import {ConfigWithParams} from "@/shared/lib/callApi";
+import {ConfigWithParams} from "@/shared/lib/call-api";
 import {SearchParams} from "@/shared/entities/aninlibria/model/AnilibriaApiParams";
 import {getSearch} from "@/shared/entities/aninlibria/api";
 

@@ -2,7 +2,7 @@
 
 import {useInfiniteQuery} from "@tanstack/react-query";
 import {getTitleUpdates} from "@/shared/entities/aninlibria/api";
-import {ConfigWithParams} from "@/shared/lib/callApi";
+import {ConfigWithParams} from "@/shared/lib/call-api";
 import {UpdatesParams} from "@/shared/entities/aninlibria/model/AnilibriaApiParams";
 
 const DEFAULT_PARAMS = {

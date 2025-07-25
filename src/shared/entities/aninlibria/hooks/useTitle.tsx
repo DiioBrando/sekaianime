@@ -1,4 +1,4 @@
-import {ConfigWithParams} from "@/shared/lib/callApi";
+import {ConfigWithParams} from "@/shared/lib/call-api";
 import {TitleParams} from "@/shared/entities/aninlibria/model/AnilibriaApiParams";
 import {useQuery} from "@tanstack/react-query";
 import {getTitle} from "@/shared/entities/aninlibria/api";

@@ -1,4 +1,4 @@
-export { callApi } from '../../../lib/callApi';
+export { callApi } from '../../../lib/call-api';
 export { getChanges } from './getChanges';
 export { getFranchises } from './getFanchises';
 export { getRandom } from './getRandom';

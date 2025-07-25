@@ -2,7 +2,7 @@
 
 import {getRandom} from "@/shared/entities/aninlibria/api";
 import {useQuery} from "@tanstack/react-query";
-import {ConfigWithParams} from "@/shared/lib/callApi";
+import {ConfigWithParams} from "@/shared/lib/call-api";
 import {RandomParams} from "@/shared/entities/aninlibria/model/AnilibriaApiParams";
 
 const DEFAULT_PARAMS = {
