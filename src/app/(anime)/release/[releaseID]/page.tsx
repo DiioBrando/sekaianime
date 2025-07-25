@@ -1,4 +1,4 @@
-import {Release} from "@/features/anime/release/components/Release";
+import {Release} from "@/features/anime/release/components/release/Release";
 import {use} from "react";
 
 export default function Page({ params }: { params: Promise<{ releaseID: string }> }) {

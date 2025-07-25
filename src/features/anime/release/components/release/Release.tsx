@@ -7,9 +7,9 @@ import {Skeleton} from "@/shared/components/ui/skeleton";
 import {Button} from "@/shared/components/ui/button";
 import {Separator} from "@/shared/components/ui/separator";
 import {useState} from "react";
-import {Franchises} from "@/features/anime/release/components/content-tabs/Franchises";
-import {Episodes} from "@/features/anime/release/components/content-tabs/Episodes";
-import {TeamsVoices} from "@/features/anime/release/components/content-tabs/TeamsVoices";
+import {Franchises} from "@/features/anime/release/components/release/content-tabs/Franchises";
+import {Episodes} from "@/features/anime/release/components/release/content-tabs/Episodes";
+import {TeamsVoices} from "@/features/anime/release/components/release/content-tabs/TeamsVoices";
 
 type _contentTabs = 'episodes' | 'franchises' | 'teams&voices';
 
